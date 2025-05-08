@@ -1,0 +1,235 @@
+dbms,TABLE_SCHEMA,TABLE_NAME,COLUMN_NAME,ORDINAL_POSITION,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,CONSTRAINT_TYPE,REFERENCED_TABLE_SCHEMA,REFERENCED_TABLE_NAME,REFERENCED_COLUMN_NAME
+mysql,clinical_booking_db,appointments,AppointmentID,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,clinical_booking_db,appointments,DateTime,6,datetime,NULL,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,appointments,LocationID,5,int,NULL,"FOREIGN KEY",clinical_booking_db,locations,LocationID
+mysql,clinical_booking_db,appointments,Notes,8,text,65535,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,appointments,PatientID,2,int,NULL,"FOREIGN KEY",clinical_booking_db,patients,PatientID
+mysql,clinical_booking_db,appointments,ProviderID,3,int,NULL,"FOREIGN KEY",clinical_booking_db,providers,ProviderID
+mysql,clinical_booking_db,appointments,ServiceID,4,int,NULL,"FOREIGN KEY",clinical_booking_db,services,ServiceID
+mysql,clinical_booking_db,appointments,Status,7,enum,9,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,departments,DepartmentID,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,clinical_booking_db,departments,Description,3,text,65535,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,departments,Name,2,varchar,100,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,feedback,AppointmentID,2,int,NULL,"FOREIGN KEY",clinical_booking_db,appointments,AppointmentID
+mysql,clinical_booking_db,feedback,Comments,4,text,65535,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,feedback,Date,5,date,NULL,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,feedback,FeedbackID,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,clinical_booking_db,feedback,Rating,3,int,NULL,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,insurance,ExpiryDate,5,date,NULL,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,insurance,InsuranceID,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,clinical_booking_db,insurance,PatientID,2,int,NULL,"FOREIGN KEY",clinical_booking_db,patients,PatientID
+mysql,clinical_booking_db,insurance,PolicyNumber,4,varchar,50,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,insurance,ProviderName,3,varchar,100,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,locations,Address,2,varchar,255,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,locations,City,3,varchar,50,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,locations,LocationID,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,clinical_booking_db,locations,Phone,6,varchar,20,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,locations,State,4,varchar,50,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,locations,ZipCode,5,varchar,20,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,medicalrecords,AppointmentID,3,int,NULL,"FOREIGN KEY",clinical_booking_db,appointments,AppointmentID
+mysql,clinical_booking_db,medicalrecords,Diagnosis,4,text,65535,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,medicalrecords,Notes,6,text,65535,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,medicalrecords,PatientID,2,int,NULL,"FOREIGN KEY",clinical_booking_db,patients,PatientID
+mysql,clinical_booking_db,medicalrecords,Prescription,5,text,65535,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,medicalrecords,RecordID,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,clinical_booking_db,patients,Address,7,text,65535,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,patients,ContactNumber,5,varchar,20,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,patients,DOB,4,date,NULL,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,patients,Email,6,varchar,100,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,patients,EmergencyContact,8,varchar,20,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,patients,FirstName,2,varchar,50,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,patients,LastName,3,varchar,50,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,patients,PatientID,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,clinical_booking_db,payments,Amount,3,decimal,NULL,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,payments,AppointmentID,2,int,NULL,"FOREIGN KEY",clinical_booking_db,appointments,AppointmentID
+mysql,clinical_booking_db,payments,PaymentID,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,clinical_booking_db,payments,PaymentMethod,4,enum,11,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,payments,Status,5,enum,7,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,payments,TransactionDate,6,date,NULL,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,providers,ContactNumber,5,varchar,20,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,providers,Email,6,varchar,100,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,providers,FirstName,2,varchar,50,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,providers,LastName,3,varchar,50,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,providers,ProviderID,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,clinical_booking_db,providers,Specialty,4,varchar,100,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,providerservices,ProviderID,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,clinical_booking_db,providerservices,ProviderID,1,int,NULL,"FOREIGN KEY",clinical_booking_db,providers,ProviderID
+mysql,clinical_booking_db,providerservices,ServiceID,2,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,clinical_booking_db,providerservices,ServiceID,2,int,NULL,"FOREIGN KEY",clinical_booking_db,services,ServiceID
+mysql,clinical_booking_db,schedules,DayOfWeek,3,enum,3,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,schedules,EndTime,5,time,NULL,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,schedules,LocationID,6,int,NULL,"FOREIGN KEY",clinical_booking_db,locations,LocationID
+mysql,clinical_booking_db,schedules,ProviderID,2,int,NULL,"FOREIGN KEY",clinical_booking_db,providers,ProviderID
+mysql,clinical_booking_db,schedules,ScheduleID,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,clinical_booking_db,schedules,StartTime,4,time,NULL,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,services,Cost,5,decimal,NULL,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,services,DepartmentID,6,int,NULL,"FOREIGN KEY",clinical_booking_db,departments,DepartmentID
+mysql,clinical_booking_db,services,Description,3,text,65535,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,services,Duration,4,int,NULL,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,services,Name,2,varchar,100,NULL,NULL,NULL,NULL
+mysql,clinical_booking_db,services,ServiceID,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,ecomm,attribute_category,attribute_category_id,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,ecomm,attribute_category,attribute_name,2,varchar,100,NULL,NULL,NULL,NULL
+mysql,ecomm,attribute_category,description,3,text,65535,NULL,NULL,NULL,NULL
+mysql,ecomm,attribute_type,attribute_type_id,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,ecomm,attribute_type,attribute_type_name,2,varchar,50,NULL,NULL,NULL,NULL
+mysql,ecomm,brand,brand_id,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,ecomm,brand,description,4,text,65535,NULL,NULL,NULL,NULL
+mysql,ecomm,brand,logo_url,3,varchar,255,NULL,NULL,NULL,NULL
+mysql,ecomm,brand,name,2,varchar,255,NULL,NULL,NULL,NULL
+mysql,ecomm,color,color_id,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,ecomm,color,color_name,2,varchar,50,NULL,NULL,NULL,NULL
+mysql,ecomm,color,hex_code,3,char,7,NULL,NULL,NULL,NULL
+mysql,ecomm,product,base_price,5,decimal,NULL,NULL,NULL,NULL,NULL
+mysql,ecomm,product,brand_id,2,int,NULL,"FOREIGN KEY",ecomm,brand,brand_id
+mysql,ecomm,product,category_id,3,int,NULL,"FOREIGN KEY",ecomm,product_category,category_id
+mysql,ecomm,product,description,6,text,65535,NULL,NULL,NULL,NULL
+mysql,ecomm,product,product_id,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,ecomm,product,product_name,4,varchar,255,NULL,NULL,NULL,NULL
+mysql,ecomm,product_attribute,attribute_category_id,3,int,NULL,"FOREIGN KEY",ecomm,attribute_category,attribute_category_id
+mysql,ecomm,product_attribute,attribute_id,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,ecomm,product_attribute,attribute_name,5,varchar,100,NULL,NULL,NULL,NULL
+mysql,ecomm,product_attribute,attribute_type_id,4,int,NULL,"FOREIGN KEY",ecomm,attribute_type,attribute_type_id
+mysql,ecomm,product_attribute,attribute_value,6,varchar,255,NULL,NULL,NULL,NULL
+mysql,ecomm,product_attribute,product_id,2,int,NULL,"FOREIGN KEY",ecomm,product,product_id
+mysql,ecomm,product_category,category_id,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,ecomm,product_category,category_name,2,varchar,255,NULL,NULL,NULL,NULL
+mysql,ecomm,product_category,description,3,text,65535,NULL,NULL,NULL,NULL
+mysql,ecomm,product_image,alt_text,4,varchar,255,NULL,NULL,NULL,NULL
+mysql,ecomm,product_image,image_id,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,ecomm,product_image,image_url,3,varchar,2048,NULL,NULL,NULL,NULL
+mysql,ecomm,product_image,product_id,2,int,NULL,"FOREIGN KEY",ecomm,product,product_id
+mysql,ecomm,product_item,item_id,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,ecomm,product_item,price,4,decimal,NULL,NULL,NULL,NULL,NULL
+mysql,ecomm,product_item,sku,3,varchar,100,UNIQUE,NULL,NULL,NULL
+mysql,ecomm,product_item,stock_quantity,5,int,NULL,NULL,NULL,NULL,NULL
+mysql,ecomm,product_item,variation_id,2,int,NULL,"FOREIGN KEY",ecomm,product_variation,variation_id
+mysql,ecomm,product_variation,color_id,3,int,NULL,"FOREIGN KEY",ecomm,color,color_id
+mysql,ecomm,product_variation,product_id,2,int,NULL,"FOREIGN KEY",ecomm,product,product_id
+mysql,ecomm,product_variation,size_option_id,4,int,NULL,"FOREIGN KEY",ecomm,size_option,size_option_id
+mysql,ecomm,product_variation,variation_id,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,ecomm,size_category,size_category_id,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,ecomm,size_category,size_category_name,2,varchar,100,NULL,NULL,NULL,NULL
+mysql,ecomm,size_option,label,3,varchar,50,NULL,NULL,NULL,NULL
+mysql,ecomm,size_option,size_category_id,2,int,NULL,"FOREIGN KEY",ecomm,size_category,size_category_id
+mysql,ecomm,size_option,size_option_id,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,ecommerce,attribute_category,attribute_id,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,ecommerce,attribute_category,attribute_name,2,varchar,100,NULL,NULL,NULL,NULL
+mysql,ecommerce,attribute_type,attribute_type_id,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,ecommerce,attribute_type,attribute_type_name,2,varchar,50,NULL,NULL,NULL,NULL
+mysql,ecommerce,brand,brand_id,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,ecommerce,brand,brand_name,2,varchar,100,NULL,NULL,NULL,NULL
+mysql,ecommerce,brand,description,3,text,65535,NULL,NULL,NULL,NULL
+mysql,ecommerce,brand,logo_url,4,varchar,255,NULL,NULL,NULL,NULL
+mysql,ecommerce,color,color_id,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,ecommerce,color,color_name,2,varchar,50,NULL,NULL,NULL,NULL
+mysql,ecommerce,color,hex_code,3,varchar,7,NULL,NULL,NULL,NULL
+mysql,ecommerce,product,base_price,4,decimal,NULL,NULL,NULL,NULL,NULL
+mysql,ecommerce,product,brand_id,3,int,NULL,"FOREIGN KEY",ecommerce,brand,brand_id
+mysql,ecommerce,product,category_id,5,int,NULL,"FOREIGN KEY",ecommerce,product_category,category_id
+mysql,ecommerce,product,product_id,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,ecommerce,product,product_name,2,varchar,200,NULL,NULL,NULL,NULL
+mysql,ecommerce,product_attribute,attribute_category_id,5,int,NULL,"FOREIGN KEY",ecommerce,attribute_category,attribute_id
+mysql,ecommerce,product_attribute,attribute_name,3,varchar,100,NULL,NULL,NULL,NULL
+mysql,ecommerce,product_attribute,attribute_type_id,6,int,NULL,"FOREIGN KEY",ecommerce,attribute_type,attribute_type_id
+mysql,ecommerce,product_attribute,attribute_value,4,varchar,255,NULL,NULL,NULL,NULL
+mysql,ecommerce,product_attribute,product_attribute_id,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,ecommerce,product_attribute,product_id,2,int,NULL,"FOREIGN KEY",ecommerce,product,product_id
+mysql,ecommerce,product_category,category_id,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,ecommerce,product_category,category_name,2,varchar,100,NULL,NULL,NULL,NULL
+mysql,ecommerce,product_category,description,3,text,65535,NULL,NULL,NULL,NULL
+mysql,ecommerce,product_image,alt_text,4,varchar,255,NULL,NULL,NULL,NULL
+mysql,ecommerce,product_image,image_id,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,ecommerce,product_image,image_url,3,varchar,255,NULL,NULL,NULL,NULL
+mysql,ecommerce,product_image,product_id,2,int,NULL,"FOREIGN KEY",ecommerce,product,product_id
+mysql,ecommerce,product_item,color_id,4,int,NULL,NULL,NULL,NULL,NULL
+mysql,ecommerce,product_item,item_size_id,3,int,NULL,"FOREIGN KEY",ecommerce,size_option,option_id
+mysql,ecommerce,product_item,price,7,decimal,NULL,NULL,NULL,NULL,NULL
+mysql,ecommerce,product_item,product_id,2,int,NULL,"FOREIGN KEY",ecommerce,product,product_id
+mysql,ecommerce,product_item,product_item_id,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,ecommerce,product_item,sku,5,varchar,100,UNIQUE,NULL,NULL,NULL
+mysql,ecommerce,product_item,stock_quantity,6,int,NULL,NULL,NULL,NULL,NULL
+mysql,ecommerce,product_variation,color_id,3,int,NULL,"FOREIGN KEY",ecommerce,color,color_id
+mysql,ecommerce,product_variation,product_id,2,int,NULL,"FOREIGN KEY",ecommerce,product,product_id
+mysql,ecommerce,product_variation,product_variation_id,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,ecommerce,product_variation,variation_size_id,4,int,NULL,"FOREIGN KEY",ecommerce,size_option,option_id
+mysql,ecommerce,size_category,size_category_id,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,ecommerce,size_category,size_category_name,2,varchar,100,NULL,NULL,NULL,NULL
+mysql,ecommerce,size_option,label,3,varchar,50,NULL,NULL,NULL,NULL
+mysql,ecommerce,size_option,option_id,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,ecommerce,size_option,size_category_id,2,int,NULL,"FOREIGN KEY",ecommerce,size_category,size_category_id
+mysql,employees,employeesalaryhistory,EmployeeID,1,int,NULL,NULL,NULL,NULL,NULL
+mysql,employees,employeesalaryhistory,Salary,2,decimal,NULL,NULL,NULL,NULL,NULL
+mysql,employees,employeesalaryhistory,TransactionEnd,6,timestamp,NULL,NULL,NULL,NULL,NULL
+mysql,employees,employeesalaryhistory,TransactionStart,5,timestamp,NULL,NULL,NULL,NULL,NULL
+mysql,employees,employeesalaryhistory,ValidFrom,3,date,NULL,NULL,NULL,NULL,NULL
+mysql,employees,employeesalaryhistory,ValidTo,4,date,NULL,NULL,NULL,NULL,NULL
+mysql,salesdb,customers,addressLine1,6,varchar,50,NULL,NULL,NULL,NULL
+mysql,salesdb,customers,addressLine2,7,varchar,50,NULL,NULL,NULL,NULL
+mysql,salesdb,customers,city,8,varchar,50,NULL,NULL,NULL,NULL
+mysql,salesdb,customers,contactFirstName,4,varchar,50,NULL,NULL,NULL,NULL
+mysql,salesdb,customers,contactLastName,3,varchar,50,NULL,NULL,NULL,NULL
+mysql,salesdb,customers,country,11,varchar,50,NULL,NULL,NULL,NULL
+mysql,salesdb,customers,creditLimit,13,decimal,NULL,NULL,NULL,NULL,NULL
+mysql,salesdb,customers,customerName,2,varchar,50,NULL,NULL,NULL,NULL
+mysql,salesdb,customers,customerNumber,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,salesdb,customers,phone,5,varchar,50,NULL,NULL,NULL,NULL
+mysql,salesdb,customers,postalCode,10,varchar,15,NULL,NULL,NULL,NULL
+mysql,salesdb,customers,salesRepEmployeeNumber,12,int,NULL,"FOREIGN KEY",salesdb,employees,employeeNumber
+mysql,salesdb,customers,state,9,varchar,50,NULL,NULL,NULL,NULL
+mysql,salesdb,employees,email,5,varchar,100,NULL,NULL,NULL,NULL
+mysql,salesdb,employees,employeeNumber,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,salesdb,employees,extension,4,varchar,10,NULL,NULL,NULL,NULL
+mysql,salesdb,employees,firstName,3,varchar,50,NULL,NULL,NULL,NULL
+mysql,salesdb,employees,jobTitle,8,varchar,50,NULL,NULL,NULL,NULL
+mysql,salesdb,employees,lastName,2,varchar,50,NULL,NULL,NULL,NULL
+mysql,salesdb,employees,officeCode,6,varchar,10,"FOREIGN KEY",salesdb,offices,officeCode
+mysql,salesdb,employees,reportsTo,7,int,NULL,"FOREIGN KEY",salesdb,employees,employeeNumber
+mysql,salesdb,offices,addressLine1,4,varchar,50,NULL,NULL,NULL,NULL
+mysql,salesdb,offices,addressLine2,5,varchar,50,NULL,NULL,NULL,NULL
+mysql,salesdb,offices,city,2,varchar,50,NULL,NULL,NULL,NULL
+mysql,salesdb,offices,country,7,varchar,50,NULL,NULL,NULL,NULL
+mysql,salesdb,offices,officeCode,1,varchar,10,"PRIMARY KEY",NULL,NULL,NULL
+mysql,salesdb,offices,phone,3,varchar,50,NULL,NULL,NULL,NULL
+mysql,salesdb,offices,postalCode,8,varchar,15,NULL,NULL,NULL,NULL
+mysql,salesdb,offices,state,6,varchar,50,NULL,NULL,NULL,NULL
+mysql,salesdb,offices,territory,9,varchar,10,NULL,NULL,NULL,NULL
+mysql,salesdb,orderdetails,orderLineNumber,5,smallint,NULL,NULL,NULL,NULL,NULL
+mysql,salesdb,orderdetails,orderNumber,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,salesdb,orderdetails,orderNumber,1,int,NULL,"FOREIGN KEY",salesdb,orders,orderNumber
+mysql,salesdb,orderdetails,priceEach,4,decimal,NULL,NULL,NULL,NULL,NULL
+mysql,salesdb,orderdetails,productCode,2,varchar,15,"PRIMARY KEY",NULL,NULL,NULL
+mysql,salesdb,orderdetails,productCode,2,varchar,15,"FOREIGN KEY",salesdb,products,productCode
+mysql,salesdb,orderdetails,quantityOrdered,3,int,NULL,NULL,NULL,NULL,NULL
+mysql,salesdb,orders,comments,6,text,65535,NULL,NULL,NULL,NULL
+mysql,salesdb,orders,customerNumber,7,int,NULL,"FOREIGN KEY",salesdb,customers,customerNumber
+mysql,salesdb,orders,orderDate,2,date,NULL,NULL,NULL,NULL,NULL
+mysql,salesdb,orders,orderNumber,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,salesdb,orders,requiredDate,3,date,NULL,NULL,NULL,NULL,NULL
+mysql,salesdb,orders,shippedDate,4,date,NULL,NULL,NULL,NULL,NULL
+mysql,salesdb,orders,status,5,varchar,15,NULL,NULL,NULL,NULL
+mysql,salesdb,payments,amount,4,decimal,NULL,NULL,NULL,NULL,NULL
+mysql,salesdb,payments,checkNumber,2,varchar,50,"PRIMARY KEY",NULL,NULL,NULL
+mysql,salesdb,payments,customerNumber,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,salesdb,payments,customerNumber,1,int,NULL,"FOREIGN KEY",salesdb,customers,customerNumber
+mysql,salesdb,payments,paymentDate,3,date,NULL,NULL,NULL,NULL,NULL
+mysql,salesdb,productlines,htmlDescription,3,mediumtext,16777215,NULL,NULL,NULL,NULL
+mysql,salesdb,productlines,image,4,mediumblob,16777215,NULL,NULL,NULL,NULL
+mysql,salesdb,productlines,productLine,1,varchar,50,"PRIMARY KEY",NULL,NULL,NULL
+mysql,salesdb,productlines,textDescription,2,varchar,4000,NULL,NULL,NULL,NULL
+mysql,salesdb,products,buyPrice,8,decimal,NULL,NULL,NULL,NULL,NULL
+mysql,salesdb,products,MSRP,9,decimal,NULL,NULL,NULL,NULL,NULL
+mysql,salesdb,products,productCode,1,varchar,15,"PRIMARY KEY",NULL,NULL,NULL
+mysql,salesdb,products,productDescription,6,text,65535,NULL,NULL,NULL,NULL
+mysql,salesdb,products,productLine,3,varchar,50,"FOREIGN KEY",salesdb,productlines,productLine
+mysql,salesdb,products,productName,2,varchar,70,NULL,NULL,NULL,NULL
+mysql,salesdb,products,productScale,4,varchar,10,NULL,NULL,NULL,NULL
+mysql,salesdb,products,productVendor,5,varchar,50,NULL,NULL,NULL,NULL
+mysql,salesdb,products,quantityInStock,7,smallint,NULL,NULL,NULL,NULL,NULL
+mysql,salesdb,student,age,3,int,NULL,NULL,NULL,NULL,NULL
+mysql,salesdb,student,fullName,2,varchar,100,NULL,NULL,NULL,NULL
+mysql,salesdb,student,id,1,int,NULL,"PRIMARY KEY",NULL,NULL,NULL
+mysql,sys,sys_config,set_by,4,varchar,128,NULL,NULL,NULL,NULL
+mysql,sys,sys_config,set_time,3,timestamp,NULL,NULL,NULL,NULL,NULL
+mysql,sys,sys_config,value,2,varchar,128,NULL,NULL,NULL,NULL
+mysql,sys,sys_config,variable,1,varchar,128,"PRIMARY KEY",NULL,NULL,NULL
